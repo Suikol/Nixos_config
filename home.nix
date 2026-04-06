@@ -17,6 +17,17 @@
     btop
     lsof
     usbutils
+    yazi
+    localsend
+    prismlauncher
+    zulu25
+    google-chrome
+    git
+    kdePackages.dolphin
+    rmpc
+    mpd
+    mpdris2
+    cava
   ];
 
   programs.git = {

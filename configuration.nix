@@ -78,20 +78,6 @@
     isNormalUser = true;
     description = "suikol";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      yazi
-      fastfetch
-      localsend
-      prismlauncher
-      zulu25
-      google-chrome
-      git
-      kdePackages.dolphin
-      rmpc
-      mpd
-      mpdris2
-      cava
-    ];
   };
 
   # Allow unfree packages
