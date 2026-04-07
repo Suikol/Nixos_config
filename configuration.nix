@@ -63,6 +63,8 @@
   programs.niri.enable = true;
   services.v2raya.enable = true;
 
+  programs.zsh.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -78,6 +80,7 @@
     isNormalUser = true;
     description = "suikol";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
 
   # Allow unfree packages

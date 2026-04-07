@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  imports =
+    [
+      ./shell/shell.nix
+    ];
+
   home.username = "suikol";
   home.homeDirectory = "/home/suikol";
   home.packages = with pkgs;[
@@ -36,21 +41,5 @@
     userEmail = "3457485859@qq.com";
   };
 
-  programs.starship = {
-    enable = true;
-    settings = {
-      add_newline = false;
-      aws.disabled = true;
-      gcloud.disabled = true;
-      line_break.disabled = true;
-    };
-  };
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    bashrcExtra = ''
-    '';
-  };
   home.stateVersion = "25.11";
 }
