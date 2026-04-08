@@ -4,6 +4,7 @@
   imports =
     [
       ./shell/shell.nix
+      ./desktop/desktop.nix
     ];
 
   home.username = "suikol";
