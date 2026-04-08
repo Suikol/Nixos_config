@@ -13,13 +13,13 @@
   outputs = { self, home-manager, nixpkgs, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
-        ./configuration.nix
+        ./system/configuration.nix
 
         home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.suikol = import ./home.nix;
+            home-manager.users.suikol = import ./home-manager/home-manager.nix;
             home-manager.extraSpecialArgs = inputs;
           }
       ];
