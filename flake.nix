@@ -24,7 +24,7 @@
 	    home-manager.users.suikol = {
               imports = [
                 ./home-manager/home-manager.nix
-                catppuccin.homeModules.catppuccin
+                inputs.catppuccin.homeModules.catppuccin
               ];
             };
           }

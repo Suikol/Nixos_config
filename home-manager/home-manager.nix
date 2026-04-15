@@ -5,6 +5,7 @@
     [
       ./shell/shell.nix
       ./desktop/desktop.nix
+      ./catppuccin/catppuccin.nix
     ];
 
   home.username = "suikol";
@@ -34,6 +35,8 @@
     mpd
     mpdris2
     cava
+    kdePackages.ark
+    scrcpy
   ];
 
   programs.git = {
