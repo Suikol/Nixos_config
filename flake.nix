@@ -2,11 +2,15 @@
   description = "Suikol's NixOS flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    catppuccin.url = "github:catppuccin/nix";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+   
+   catppuccin = {
+    url = "github:catppuccin/nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -24,7 +28,7 @@
 	    home-manager.users.suikol = {
               imports = [
                 ./home-manager/home-manager.nix
-                inputs.catppuccin.homeModules.catppuccin
+                catppuccin.homeModules.catppuccin
               ];
             };
           }

@@ -4,6 +4,8 @@
   catppuccin = {
     flavor = "macchiato";
     accent = "lavender";
+
+    opencode.enable = false;
   };
 
   # Cursors
@@ -19,5 +21,12 @@
   # QT
   qt = {
     enable = true;
+    style.name = "kvantum";
+      };
+
+  catppuccin.kvantum = {
+    enable = true;
+    apply = true;
+    assertStyle = true;
   };
 }
