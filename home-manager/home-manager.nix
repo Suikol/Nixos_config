@@ -6,6 +6,7 @@
       ./shell/shell.nix
       ./desktop/desktop.nix
       ./catppuccin/catppuccin.nix
+      ./package/package.nix
     ];
 
   home.username = "suikol";
@@ -31,8 +32,8 @@
     google-chrome
     git
     kdePackages.dolphin
-    rmpc
     mpd
+    flac
     mpdris2
     cava
     kdePackages.ark
