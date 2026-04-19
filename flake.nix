@@ -13,12 +13,19 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, home-manager, nixpkgs, catppuccin, ... }@inputs: {
+  outputs = { self, home-manager, nixpkgs, catppuccin, nur,... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
         ./system/configuration.nix
+
+        nur.modules.nixos.default
 
         home-manager.nixosModules.home-manager
           {
