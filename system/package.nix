@@ -2,6 +2,10 @@
 
 {
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.segger-jlink.acceptLicense = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "segger-jlink-qt4-874"
+  ];
 
   programs.zsh.enable = true;
 
@@ -22,6 +26,23 @@
     xwayland-satellite
     adwaita-icon-theme
     catppuccin-sddm
+
+    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+      pkgs.buildFHSEnv (base // {
+      name = "fhs";
+      targetPkgs = pkgs:
+        (base.targetPkgs pkgs) ++ (with pkgs; [
+          pkg-config
+          ncurses
+	  gnumake
+	  nrfutil
+          nrf-command-line-tools
+        ]
+      );
+      profile = "export FHS=1";
+      runScript = "bash";
+      extraOutputsToInstall = ["dev"];
+    }))
   ];
 
   # Fonts
