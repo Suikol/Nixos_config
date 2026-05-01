@@ -38,6 +38,8 @@
     cava
     kdePackages.ark
     scrcpy
+    chameleon-cli
+    vscode
   ];
 
   programs.git = {

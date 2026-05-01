@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   # SDDM
@@ -14,8 +14,10 @@
   # Nvidia
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidiaPackages.legacy_580 ];
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
 }

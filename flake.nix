@@ -18,17 +18,25 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
-  outputs = { self, home-manager, nixpkgs, catppuccin, nur,... }@inputs: {
+  outputs = { self, home-manager, nixpkgs, catppuccin, nur, nix-cachyos-kernel, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
         ./system/configuration.nix
 
+        {
+            nixpkgs.overlays = [
+              nix-cachyos-kernel.overlays.pinned
+            ];
+          }
+
         nur.modules.nixos.default
 
         home-manager.nixosModules.home-manager
-          {
+	{
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = inputs;
