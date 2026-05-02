@@ -40,6 +40,8 @@
     scrcpy
     chameleon-cli
     vscode
+    obs-studio
+    nixfmt
   ];
 
   programs.git = {
