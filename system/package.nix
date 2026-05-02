@@ -8,15 +8,15 @@
   ];
 
   programs.zsh.enable = true;
-  
+
   nixpkgs.overlays = [
     (final: prev: {
       steam = prev.steam.override {
         extraArgs = "-cef-disable-gpu-compositing";
       };
-    })   
+    })
   ];
-  
+
   programs.steam = {
     enable = true;
     protontricks.enable = true;
@@ -40,29 +40,38 @@
     adwaita-icon-theme
     catppuccin-sddm
 
-    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-      pkgs.buildFHSEnv (base // {
-      name = "fhs";
-      targetPkgs = pkgs:
-        (base.targetPkgs pkgs) ++ (with pkgs; [
-          pkg-config
-          ncurses
-	  gnumake
-	  nrfutil
-          nrf-command-line-tools
-        ]
-      );
-      profile = "export FHS=1";
-      runScript = "bash";
-      extraOutputsToInstall = ["dev"];
-    }))
+    (
+      let
+        base = pkgs.appimageTools.defaultFhsEnvArgs;
+      in
+      pkgs.buildFHSEnv (
+        base
+        // {
+          name = "fhs";
+          targetPkgs =
+            pkgs:
+            (base.targetPkgs pkgs)
+            ++ (with pkgs; [
+              pkg-config
+              ncurses
+              gnumake
+              nrfutil
+              nrf-command-line-tools
+            ]);
+          profile = "export FHS=1";
+          runScript = "bash";
+          extraOutputsToInstall = [ "dev" ];
+        }
+      )
+    )
   ];
 
   # Fonts
   fonts.packages = with pkgs; [
-   noto-fonts
-   noto-fonts-cjk-sans                                     noto-fonts-color-emoji
-   maple-mono.NF-CN
- ];
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    maple-mono.NF-CN
+  ];
 
 }

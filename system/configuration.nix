@@ -1,18 +1,20 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./display.nix
-      ./package.nix
-      ./user.nix
-      ./locale.nix
-      ./service.nix
-      ./network.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./display.nix
+    ./package.nix
+    ./user.nix
+    ./locale.nix
+    ./service.nix
+    ./network.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

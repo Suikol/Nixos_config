@@ -1,8 +1,7 @@
 { pkgs, config, ... }:
 
 {
-  imports =
-    [
-      ./rmpc.nix
-    ];
+  imports = [
+    ./rmpc.nix
+  ];
 }

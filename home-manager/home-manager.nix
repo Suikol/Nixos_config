@@ -1,17 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./shell/shell.nix
-      ./desktop/desktop.nix
-      ./catppuccin/catppuccin.nix
-      ./package/package.nix
-    ];
+  imports = [
+    ./shell/shell.nix
+    ./desktop/desktop.nix
+    ./catppuccin/catppuccin.nix
+    ./package/package.nix
+  ];
 
   home.username = "suikol";
   home.homeDirectory = "/home/suikol";
-  home.packages = with pkgs;[
+  home.packages = with pkgs; [
     fastfetch
     zip
     xz

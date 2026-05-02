@@ -1,4 +1,4 @@
-{config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   catppuccin = {
@@ -14,15 +14,15 @@
   };
 
   home.pointerCursor = {
-  name = "catppuccin-macchiato-lavender-cursors";
-  size = 24;
+    name = "catppuccin-macchiato-lavender-cursors";
+    size = 24;
   };
 
   # QT
   qt = {
     enable = true;
     style.name = "kvantum";
-      };
+  };
 
   catppuccin.kvantum = {
     enable = true;

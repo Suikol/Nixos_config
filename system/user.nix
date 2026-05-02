@@ -1,10 +1,13 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, ... }:
 
 {
   users.users.suikol = {
     isNormalUser = true;
     description = "suikol";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
-  };  
+  };
 }
